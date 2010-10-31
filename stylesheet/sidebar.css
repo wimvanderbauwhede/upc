@@ -1,0 +1,61 @@
+/*
+  +------------------------------------------------------------------+
+  | MikeCherim.com                                                   |
+  | CSS: Smart Corners                                               |
+  | Cascading Style Sheet                                            |
+  | Copyright Aug 2006                                               |
+  | Use with attribution by visible link please!                     |
+  | Attribute to: <a href="http://green-beast.com/">Mike Cherim</a>  |
+  +------------------------------------------------------------------+
+*/ 
+
+/* here's the box... the image is the upper-left corner  */
+#sidebar {
+
+  background :  #559798 url(../images/corner_ul.png) no-repeat;
+  font-family:Verdana, Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 1.0em;
+  line-height: 1.3em;
+  width : 480px;
+  height : auto;
+  position : relative;
+  padding : 5px 20px;
+  margin: 0px 0px;
+}
+
+/* these are the other three spans. classes were used to allow multiuse on a page */
+.tr, .bl, .br {
+  position : absolute;
+  width : 16px;
+  height : 16px;  /* corner images are 40x40 */
+  display : block;
+  margin-bottom : 0px;  /* must be -1px for IE */
+}
+
+/* change position and image: top-right */
+.tr {
+  background : transparent url(../images/corner_ur.png) no-repeat;
+  top : 0;
+  right : 0;
+}
+
+/* change position and image: bottom-left */
+.bl {
+  background : transparent url(../images/corner_ll.png) no-repeat;
+  bottom : 0;
+  left : 0;
+}
+
+/* change position and image: bottom-right */
+.br {
+  background : transparent url(../images/corner_lr.png) no-repeat;
+  right : 0;
+  bottom : 0;
+}
+.sidebartitle {
+
+font-weight:bold; font-size:1.2em}
+.sidebarcontent
+
+/* End Styles */

@@ -1,0 +1,243 @@
+/* ==  Pp's system v1.0 August 2007 == */
+body {font-family: Verdana, Helvetica, sans-serif, Arial; line-height: normal; background: #CCCCCC url(../images/background.png);
+ font-size: 0.9em; color: #010101; font-weight: normal;  margin: 0px; padding: 0px; text-align: center}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
+/* ==  Order of attributes for divs == */
+/* float: left; clear: none; width: 90%; height: 35px; border: solid 0px white; margin: 0px; padding: 0px; text-align: left */
+
+/* == Order of attributes for classes == */
+/* font-size: 0.9em; color: #010101; font-weight: normal;  margin: 0px; padding: 0px; border: solid 0px white*/
+
+/* -------------------------------------------------------------------------------------------------------------- */
+/* Float containers as required */
+#floatcontainer1 { 
+margin: 0 auto;
+width: 800px;
+border: solid 0px red; 
+background-color:white;
+ padding: 0px; 
+ text-align: left
+ }
+
+#floatcontainer2 { 
+border: solid 0px red; 
+/* height: 400px;  temporary */
+}
+/* Components */
+#banner { 
+//position: absolute; 
+border: 0px solid #000033; background-color: white;  width: 800px; 
+/* background: white url(../images/banner.png) 0px 0px no-repeat; */
+}
+#topnavigation {
+/* position: absolute;  top: 90px;  */
+border: 0px solid #CCCCCC; background-color: #CCCCCC;  width: 800px;
+height: 26px;
+background: white url(../images/topnavbar25px.png) 0px 0px repeat-x; 
+}
+#sidepane {
+/* position: absolute; top: 120px; clear: right;*/
+ background-color: #f3f5f8;  
+width: 185px; 
+height: 600px;
+padding: 5px 0px 20px 0px;
+margin: 15px 5px 5px 15px;
+border: solid 0px blue;
+line-height: 2em;
+}
+
+#content {
+font-family: Georgia,Serif;
+/* position: absolute; top: 120px; left: 200px; */
+/* WV: trouble:
+-with sidepane , it must be -15em (but it depends on #lines in the sidepane!
+-without sidebar, 0em
+*/
+position: relative; left: 200px; top: -645px;
+border: 0px solid green; background-color: white; 
+ width: 547px; 
+ margin: 0px 0px 0px 0px;
+ padding: 15px 25px 5px 25px;
+}
+#bottomnavigation {
+width: 800px;
+}
+#footer {
+width: 800px;
+}
+#skipnav {float: right; border: 0px dotted #CCCCCC; clear: none; width: auto; margin-top: -20px}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
+/* In Banner: */
+p.sitename {}
+p.baseline {}
+img.logo {}
+img.bannerimage {}
+
+/* In Topnavigation:*/
+ul.topnav {
+list-style-type: none;
+padding: 5px 0px 2px 0px;
+margin:0px;
+}
+li.topnav {
+color: white; padding-top: 0px; padding-bottom: 0px; padding-left: 24px; padding-right: 50px; 
+/*font-weight: bold; */
+ display: inline;
+}
+p.breadcrumbs {} /* breadcrumbs either in Topnavigation or in Content*/
+
+/* In Sidepane: */
+img.topsidepane {}
+ul.sidenav {
+list-style-type: none; padding: 0px 0px 0px 20px; margin: 10px 10px 10px 0px; 
+}
+li.sidenav {
+color: #333333;
+}
+
+/* In Content: */
+p.breadcrumbs {} /* breadcrumbs either in Topnavigation or in Content*/
+h1 {
+font-family:Verdana, Helvetica, Arial, sans-serif;
+
+}
+img.h1 {
+
+}
+p.pagesummary {}
+ul.pagesummary {}
+li.pagesummary {}
+ul.pagenav {}
+li.pagenav {}
+
+h2 {
+font-family:Verdana, Helvetica, Arial, sans-serif;
+color: #3f557f;
+ font-size: 1.4em; 
+  font-weight: normal;
+}
+h3 {
+font-family:Verdana, Helvetica, Arial, sans-serif;
+color: #606080;
+ font-size: 1.3em; 
+  font-weight: normal;
+}
+p {
+font-size: 1.1em; 
+line-height: 1.5em;
+} /* main body text */
+img {} /* images in main body text */
+p.caption {}
+
+p.seealso {} /* see also link: <a ><img><p>see also: xx</p></a> */
+img.seealso {}  /* see also link: <a ><img><p>see also: xx</p></a> */
+
+/* -- lists and related -- */
+p.leadin {}  /* leadin for list in main body text */
+ul {} /* bulleted list in main body text */
+li {} 
+ol {} /* numbered list in main body text */
+p.indent  /* indent for list in main body text */
+/* for sublists: */
+ul.sublist {}
+li.sublist {} 
+ol.sublist {} 
+p.indentsublist {}
+
+/* -- tables -- */
+table {}
+tr {}
+td {}
+th {}
+
+/* -- forms -- */
+form {}
+input {}
+textarea {}
+fieldset {}
+legend {}
+select {}
+
+/* -- code and quotes -- */
+pre {}
+code {font-size: 1.1em; color: #000066 }
+quote {}
+
+
+p.pagefooter {}
+img.pagefooter {}
+
+/* In Bottomnavigation:*/
+ul.bottomnav {}
+li.bottomnav {}
+
+/* In Footer:*/
+p.footer {}
+ul.footer {}
+li.footer {}
+img.footer {}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+/* Character styles*/
+em { font-weight: bold; font-style: normal}
+em.colour { font-weight: bold; font-style: normal; color: #559798 }
+em.colour2 {}
+tt {font-size=1.1em;}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+/* Links*/
+/* Define only those links which are different from the default link = link in main body text */
+
+/* links in Banner (for sitename and/or baseline, etc) */
+#banner.a:link {}
+#banner.a:visited {}
+#banner.a:hover {}
+#banner.a:active {}
+
+/* links in Topnavigation: topnav and breadcrumbs (optional)*/
+a.topnav:link { color: white; text-decoration: none;}
+a.topnav:visited {color: white; text-decoration: none;}
+a.topnav:hover {color: white; text-decoration: none;}
+a.topnav:active {color: white; text-decoration: none;}
+a.breadcrumbs:link {} /* breadcrumbs either in Topnavigation or in Content*/
+a.breadcrumbs:visited {}
+a.breadcrumbs:hover {}
+a.breadcrumbs:active {}
+
+/* links for sidenavigation in Sidepane */
+a.sidenav:link {color: #333333;text-decoration: none;}
+a.sidenav:visited {color: #333333;text-decoration: none;}
+a.sidenav:hover {color: #333333;text-decoration: none;}
+a.sidenav:active {color: #333333;text-decoration: none;}
+
+/* links in Content: breadcrumbs (optional), pagenav, main body text link, see also link, link in pagefooter */
+a.breadcrumbs:link {} /* breadcrumbs either in Topnavigation or in Content*/
+a.breadcrumbs:visited {}
+a.breadcrumbs:hover {}
+a.breadcrumbs:active {}
+a.pagenav:link {}
+a.pagenav:visited {}
+a.pagenav:hover {}
+a.pagenav:active {}
+a:link {} /* default link = link in main body text */
+a:visited {} 
+a:hover {}
+a:active {}
+a.seealso:link {}
+a.seealso:visited {}
+a.seealso:hover {}
+a.seealso:active {}
+a.pagefooter:link {}
+a.pagefooter:visited {}
+a.pagefooter:hover {}
+a.pagefooter:active {}
+
+/* links for Footer*/
+a.footer:link {}
+a.footer:visited {}
+a.footer:hover {}
+a.footer:active {}
