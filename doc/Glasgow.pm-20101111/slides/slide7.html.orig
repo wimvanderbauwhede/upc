@@ -1,0 +1,81 @@
+<!-- BEGIN slide -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>UPC: The Unobtrusive Perl Compiler</title>
+<meta name="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Spork v0.20" />
+<link rel='icon' href='favicon.png' />
+  <link rel="stylesheet" type="text/css" href="slide.css" />
+<script type="text/javascript">
+// BEGIN controls.js
+function nextSlide() {
+    window.location = 'slide8.html';
+}
+
+function prevSlide() {
+    window.location = 'slide6.html';
+}
+
+function indexSlide() {
+    window.location = 'index.html';
+}
+
+function startSlide() {
+    window.location = 'start.html';
+}
+
+function closeSlide() {
+    window.close();
+}
+
+function handleKey(e) {
+    var key;
+    if (e == null) {
+        // IE
+        key = event.keyCode
+    } 
+    else {
+        // Mozilla
+        if (e.altKey || e.ctrlKey) {
+            return true
+        }
+        key = e.which
+    }
+    switch(key) {
+        case 8: prevSlide(); break
+        case 13: nextSlide(); break
+        case 32: nextSlide(); break
+        case 81: closeSlide(); break
+        case 105: indexSlide(); break
+        case 110: nextSlide(); break
+        case 112: prevSlide(); break
+        case 115: startSlide(); break
+        default: //xxx(e.which)
+    }
+}
+
+document.onkeypress = handleKey
+// END controls.js
+
+</script>
+</head>
+<body>
+<!-- END top -->
+
+<div id="content">
+<h1><span class="hide">_</span></h1>
+<h2><tt>http://github.com/wimvanderbauwhede/upc</tt></h2>
+<pre class="formatter_pre">wim.vanderbauwhede@gmail.com 
+</pre>
+</div>
+<!-- BEGIN bottom -->
+<div class="spacer">
+<a name="end"></a>
+</div>
+</body>
+</html>
+
+
+<!-- END slide -->

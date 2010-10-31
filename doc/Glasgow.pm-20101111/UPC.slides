@@ -1,0 +1,51 @@
+----
+presentation_topic: 
+presentation_title: <br><tag>UPC: The Unobtrusive Perl Compiler</tag>
+#presentation_place: Glasgow, UK
+#presentation_date: November 11th, 2010
+----
+= What is this about?
++== "Automatic compilation of statically typeable portions of Perl 5 scripts"
++== |use static;|
+----
+= Why?
++* Perl is great
++* But sometimes a bit slow 
++* Writing an extension in C/C++ is hard
+----
+= What if ...
++* you could simply mark a function ...
++* and it would automatically be compiled?
++* So you would get all the speed benefits
++* at almost no cost
+----
+= |use static;|
++* Most Perl scripts are mostly statically typeable
++* So if we could infer the types at compile time
++* we could compile those statically typeable portions 
+----
+= How?
++* Parse Perl
++* Infer types
++* Emit C++
++* Call using XS or SWIG
+---- 
+= Yes, but /how/?
++* Parse a "useful subset" of Perl 
++* Into a functional AST
++* Type inference using Hindley-Milner algorithm
+
+----
+= Practically:
++* Compiler in Haskell using Parsec 
++* Emit C++ using |STL| and |boost| 
++* Create Perl extenstions using XS or SWIG
+----
+= _
+== |http://github.com/wimvanderbauwhede/upc|
+ wim.vanderbauwhede@gmail.com 
+
+----
+= _
+= &nbsp;&nbsp;Thank you!
+----

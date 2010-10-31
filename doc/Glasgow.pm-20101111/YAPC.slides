@@ -1,0 +1,165 @@
+----
+presentation_topic: 
+presentation_title: <br><tag>Runpugs</tag>: a web terminal for <tag>Perl 6</tag>
+#presentation_place: Wien, Austria
+#presentation_date: August 28th, 2007
+----
+= Run Perl 6 now?
++== |use Pugs;|
+----
+= But ...
++* Building Pugs ... 
++* Pugs changes often 
++* Even Perl 6 changes 
+----
+= Runpugs:
++* Easy Pugs access
++* On |feather|
++* Always latest version
+----
+{image: http://feather.perl6.nl/images/runpugs_screenshot_japh_781px.png}
+----
+= Web::Terminal
++Client/server framework
+     Dispatcher.pm
+     Server.pm
+     Server/Session.pm
+     Msg.pm
+     Settings.pm
+----
+_ 
+{image: http://feather.perl6.nl/images/runpugs_diagram_2.png}
+----
+== Internals:
+* sockets
+* fork/exec
+* signals
+* pseudo-terminal manipulation
+----
+== Networking: |Msg.pm|
+* Generic client/server messaging framework
+* from "Advanced Perl Programming"
+
+----
+== Client
+  # Dispatcher.pm
+  use Web::Terminal::Settings;
+  use Web::Terminal::Msg;
+  use YAML::Syck; 
+----
+_
+  $con = Web::Terminal::Msg->connect( 
+  $host, $port, \&rcvd_msg );
+   
+  if ( $con ) {
+      my $msg = YAML::Syck::Dump(
+          {...}
+          );
+      $conn->send_now($msg);
+  }
+----
+== Server
+  # Server.pm
+  use Web::Terminal::Settings;
+  use Web::Terminal::Msg;
+  use YAML::Syck;
+  use Proc::Daemon;
+  use Web::Terminal::Server::Session;
+----
+_
+  Web::Terminal::Msg->new_server( 
+  $host, $port, \&rcvd_msg );
+  Web::Terminal::Msg->event_loop();
+ 
+  sub rcvd_msg {
+  my ( $conn, $msg, $err ) = @_;
+  
+  my $msgref = YAML::Syck::Load($msg);
+  my $cmd = $msgref->{cmd};
+  ...
+  }
+----
+== Session objects
+  # Session.pm
+  use Web::Terminal::Settings;
+  use Moose;
+  use Net::Telnet;
+  use IO::Pty;
+  use POSIX; 
+----
+== Session objects
+  # Server.pm
+  my $term =  new Web::Terminal::
+  Server::Session(
+     app  => $app,
+     id   => $id,
+     );
+  $term->write($cmd);
+----
+== Configuration
+  # Settings.pm
+  use Config::General; 
+  
+  # .webtermrc
+  #GHCi
+  command="/usr/local/bin/ghci"
+  prompt="Prelude> "
+  prompt_pattern="(^(Prelude)>\s+)"
+----
+== Usage
+  # client
+  use Web::Terminal::Dispatcher;
+  &Web::Terminal::Dispatcher::send(
+  $sid,$ip,$cmd);
+  
+  # server
+  use Web::Terminal::Server;
+  &Web::Terminal::Server::run();
+----
+= Secure?
+
++* |PUGS_SAFEMODE=1|
+* |ulimit|
+* I/O restrictions
+* timeouts
+ 
+----
+= Reliable?
+
++== Since 19 Oct 2006:
+
+* Uptime: 99.9%
+
+----
+= Snappy?
+
++* continous screen presence (AJAX)
+* fast response (mod_perl)
+* fast startupt (preloaded sessions)
+
+----
+= Popular?
+
++== Since 19 Oct 2006:
+
+* Users:     4360
+* Sessions:  6262
+----
+== Session activity
+{image: http://feather.perl6.nl/images/runpugs_sessions.png}
+----
+== Commands per session
+{image: http://feather.perl6.nl/images/runpugs_cmds.png}
+----
+== Who uses Runpugs?
+{image: http://feather.perl6.nl/images/runpugs_users_map.png}
+----
+= _
+== |run.pugscode.org|
+ wim.vanderbauwhede@gmail.com 
+ andara@feather.perl6.nl
+
+----
+= _
+= &nbsp;&nbsp;Thank you!
+----

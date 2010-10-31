@@ -1,0 +1,10 @@
+The Unobtrusive Perl Compiler (upc)
+===================================
+
+The upc will automatically compile statically typeable portions of Perl 5 scripts. 
+Simply mark a function with 
+
+    use static; 
+
+and the magic will happen.
+

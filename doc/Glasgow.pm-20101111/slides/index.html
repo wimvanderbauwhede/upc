@@ -1,0 +1,88 @@
+<!-- BEGIN index -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>UPC: The Unobtrusive Perl Compiler</title>
+<meta name="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Spork v0.20" />
+<link rel='icon' href='favicon.png' />
+  <link rel="stylesheet" type="text/css" href="slide.css" />
+<script type="text/javascript">
+// BEGIN controls.js
+function nextSlide() {
+    window.location = 'start.html';
+}
+
+function prevSlide() {
+    window.location = '';
+}
+
+function indexSlide() {
+    window.location = 'index.html';
+}
+
+function startSlide() {
+    window.location = 'start.html';
+}
+
+function closeSlide() {
+    window.close();
+}
+
+function handleKey(e) {
+    var key;
+    if (e == null) {
+        // IE
+        key = event.keyCode
+    } 
+    else {
+        // Mozilla
+        if (e.altKey || e.ctrlKey) {
+            return true
+        }
+        key = e.which
+    }
+    switch(key) {
+        case 8: prevSlide(); break
+        case 13: nextSlide(); break
+        case 32: nextSlide(); break
+        case 81: closeSlide(); break
+        case 105: indexSlide(); break
+        case 110: nextSlide(); break
+        case 112: prevSlide(); break
+        case 115: startSlide(); break
+        default: //xxx(e.which)
+    }
+}
+
+document.onkeypress = handleKey
+// END controls.js
+
+</script>
+</head>
+<body>
+<!-- END top -->
+
+<div id="content">
+<div class="top_spacer"></div>
+<ol>
+<li><a href="slide1a.html">What is this about?</a></li>
+<li><a href="slide2a.html">Why?</a></li>
+<li><a href="slide3a.html">What if ...</a></li>
+<li><a href="slide4a.html"><tt>use static;</tt></a></li>
+<li><a href="slide5a.html">How?</a></li>
+<li><a href="slide6.html">Yes, but <strong>how</strong> <em>how</em> <tt>how</tt> `how` <how> \how\ 'how' "how" ?</a></li>
+<li><a href="slide7.html"><span class="hide">_</span></a></li>
+<li><a href="slide8.html"><span class="hide">_</span></a></li>
+</ol>
+</div>
+<!-- BEGIN bottom -->
+<div class="spacer">
+<a name="end"></a>
+</div>
+</body>
+</html>
+
+
+<!-- END index -->

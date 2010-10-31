@@ -1,0 +1,173 @@
+/* BEGIN index.css */
+
+BODY {
+	background: #204A87;
+	color: #EEEEEE;
+        /* font-weight: bold; */
+	font-family: Georgia, DejaVu Serif Condensed;
+	cursor: pointer;
+	    font-size: 48pt;
+}
+
+h1,h3,h4,h5 {font-weight:normal;
+font-size: 72pt;
+text-align=center;}
+h2 {font-weight:normal;
+font-size: 60pt;
+text-align=center;}
+
+hr {
+    color: #202040;
+    height: 0px;
+    border-top: 0px;
+    border-bottom: 3px #202040 ridge;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+a:link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p,ul,li,body {
+    color: white;
+    font-size: 48pt;
+    margin: 6pt;
+}
+
+div p {
+    font-size: 48pt;
+    margin-top: 12pt;
+    margin-bottom: 12pt;
+    margin-left: 6pt;
+    margin-right: 6pt;
+}
+
+small {
+    font-size: 24pt;
+    font-style: italic;
+}
+
+#topbar {
+//    background: [% banner_bgcolor %];
+    color: white;
+    position:absolute;
+    right: 5px;
+    left: 5px;
+    top: 5px;
+    height: 10px;
+}
+
+#bottombar {
+//    background: [% banner_bgcolor %];
+    color: white;
+    position: fixed;
+    right: 5px;
+    left: 5px;
+    bottom: 5px;
+    height: 10px;
+    z-index: 0;
+}
+
+.top_spacer {
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 1px 0px 0px 0px;
+}
+
+.spacer {
+    bottom: 5px;
+    height: 50px;
+}
+
+#content {
+//    background:#ffffff;
+    color: white;
+    margin-left: 80px;
+    margin-right:20px;
+    margin-top: 20px;
+}
+
+#logo {
+    position: fixed;
+    right: 140px;
+    bottom: 51px;
+    width: 130px;
+    height: 150px;
+    z-index:3;
+    background-image: url([% images_directory %]/[% logo_image %]);
+    background-repeat: no-repeat;
+}
+
+.formatter_pre {
+font-size: 36pt;
+}
+
+.s {
+        text-decoration: line-through;
+}
+.iu {
+        text-decoration: underline;
+        font-style: italic;
+}
+.ui {
+/*      text-decoration: underline; */
+        font-style: italic;
+}
+.u {
+        text-decoration: underline;
+}
+.i {
+        font-style: italic;
+        font-family: "Times New Roman","Bitstream Vera Serif",serif;
+}
+.c {
+        font-family: Anonymous,Lucida Console,Andale Mono,Bitstream Vera Sans Mono,monospace;
+}
+.cc {
+        font-family: Anonymous,Lucida Console,Andale Mono,Bitstream Vera Sans Mono,monospace;
+        color: #9999ff;
+}
+.fix {
+        font-size:56px;
+}
+.t {
+        font-style: italic;
+}
+.tag {
+        color: #66ff66;
+}
+.att {
+        color: #9999ff;
+}
+.key {
+        color: #99ffff;
+}
+
+.str {
+        color: #ff9999;
+}
+
+.hide { color: #204A87; }
+.hid {
+        color: #999999;
+}
+.hidt {
+        color: #999999;
+        font-style: italic;
+}
+.pre {
+        font-family: Anonymous,Lucida Console,Andale Mono,Bitstream Vera Sans Mono,monospace;
+        padding-bottom: 8px;
+}
+/* END index.css */
