@@ -30,8 +30,29 @@ presentation_title: <br><span class="tag">UPC: The Unobtrusive Perl Compiler</sp
 +* Emit C++
 +* Call using XS or SWIG
 ---- 
-= Yes, but *how* /how/ |how| `how` <how> \how\ 'how' "how" ?
----- 
+= Yes, but /how/?
++* Parse a "useful subset" of Perl 
++* into a functional AST
++* Infer types using Hindley-Milner algorithm
+
+----
+= Practically:
++* Compiler in Haskell using Parsec 
++* Emit C++ using |STL| and |boost| 
++* Create Perl extenstions using XS or SWIG
+----
+= Challenges:
++* Parsing Perl ...
++* Modules and imports  
++* Create Perl extenstions using XS or SWIG
+----
+= Help Needed
++* Lambdacamels:
++** Extending the parser
++** Extending the code generator
++* XS/SWIG gurus
++* Perl gurus
+----
 = <span class="hide">_</span>
 == |http://github.com/wimvanderbauwhede/upc|
  wim.vanderbauwhede@gmail.com 
