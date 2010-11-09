@@ -38,7 +38,7 @@ presentation_title: <br><span class="tag">UPC: The Unobtrusive Perl Compiler</sp
 ----
 = Practically:
 +* Compiler in Haskell using Parsec 
-+* Emit C++ using |STL| and |boost| 
++* Emit C++ using |STL| and |boost|, with smart pointers or the Boehm garbage collector 
 +* Create Perl extenstions using XS or SWIG
 ----
 = Challenges:
@@ -47,9 +47,12 @@ presentation_title: <br><span class="tag">UPC: The Unobtrusive Perl Compiler</sp
 +* Create Perl extenstions using XS or SWIG
 ----
 = Help Needed
++* PR: spread the word, attract volunteers
++* Project management: plans, milestones, releases etc
 +* Lambdacamels:
 +** Extending the parser
 +** Extending the code generator
++* C++ experts: esp. for memory management
 +* XS/SWIG gurus
 +* Perl gurus
 ----
