@@ -44,14 +44,18 @@ presentation_title: <br><tag>UPC: The Unobtrusive Perl Compiler</tag>
 = Challenges:
 +* Parsing Perl ...
 +* Modules and imports  
-+* Create Perl extenstions using XS or SWIG
++* Create Perl extenstions in C++
 ----
 = Help Needed
 +* PR: spread the word, attract volunteers
 +* Project management: plans, milestones, releases etc
+----
+= Help Needed
 +* Lambdacamels:
 +** Extending the parser
 +** Extending the code generator
+----
+= Help Needed
 +* C++ experts: esp. for memory management
 +* XS/SWIG gurus
 +* Perl gurus
