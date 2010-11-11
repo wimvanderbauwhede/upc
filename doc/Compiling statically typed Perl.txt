@@ -1,0 +1,194 @@
+# Compiling statically typed Perl
+
+## AST 
+
+I think the AST can be the same as for Gannet-C/MORA-C++
+Most expressions can be considered as objects or template objects:
+
+    Type, Array<Type>, Hash<Type>, Ref<Type>
+
+Type transformations are indicated with predefined functions such as mkRef, at, lookup, call
+
+## Objects
+
+Perl objects are blessed references, so if we have a package 
+containing a sub that calls bless() and returns the blessed reference:
+
+    sub new() {
+        my $package = shift;
+        my $self = {
+                @_
+            }
+        bless $self, $package;
+        return $self;
+    }        
+    
+Then we say that the thingy returned by this sub is the object reference.
+Problem is here that we can't tell the actual object, so based on this we'd have to infer just Ref<Object>
+
+However, the object instance will be created as
+
+    my $inst = ClassName :: new();
+
+Then we can infer ClassName iff we know that new returns an object reference
+
+## References
+
+If we assume that Ref<> a proper template class is, that means that we need a constructor. For example:
+
+    my @li=(1,2,3);
+
+will be parsed into (pseudocode)
+
+    AssignExpr (Array<int> li) (ArrayConst [1,2,3])
+    
+which will emit
+
+    int tai[3]={11,22,33};
+    deque<int> li(tai,tai+3);
+    
+with some way of creating a unique (e.g. hashUnique? Maybe, if we use UnsafeIO)
+
+Now, e.g.
+
+    my $lir = [1,2,3];
+    
+will be parsed into
+
+    AssignExpr (Ref< Array<int> > lir) (FunAppl mkRef (ArrayConst [1,2,3]))
+    
+which will emit
+
+    int tai[3]={11,22,33};
+    deque<int>* lip = new deque<int>(tai,tai+3);    
+
+Now what if we have:
+
+    my @li= @{$lir};
+    
+This could be come Array<Any> li = FunAppl mkArray (Ref<Array<Any> > lir)
+
+The opposite:
+
+    my $lir = \@li;
+    
+could become 
+
+    AssignExpr (Ref< Array<Any> lir > ) (FunAppl mkRef (Array<Any> > li) )
+    
+There is a slight problem with
+
+    my @li=(11,22,33);
+    my $lir= \@li;
+    return $lir;
+
+A direct translation would be
+
+    BAssign (PVar lir Ref< Array<int> > ) (PFunAppl mkRef [PVar li Array<int>])
+    
+The complication is that the emitter should do
+
+    int tai[3]={11,22,33};
+    deque<int> li(tai,tai+3);
+    deque<int>* lir = new deque<int>(li);
+    
+## Subroutines
+
+What about subs?
+
+    sub f {
+        my @args=@_;
+        my $res=42;
+        return $res;
+    }
+    
+Clearly, this becomes a BFunDef. Argument handling is a bit tricky but basically anything that contains @_ or $_[] or a bare shift is an argument. The main issue is the type. Usually we will be able to infer the type of the return value; if not, we will get
+
+    Any f (Any,...)
+    
+and hopefully we can infer more from the call. If all else fails, we can ask the coder to add type attributes. To do so, we need to provide the supported type attributes.  "use static" can automatically include this:
+
+    package static;
+    
+    use Attribute::Handlers;
+    
+    sub UNIVERSAL::int : ATTR(CODE) {
+    #        print "UNIVERSAL::int: @_\n";
+    }
+    
+    sub UNIVERSAL::String : ATTR(CODE) {
+    #        print "UNIVERSAL::String: @_\n";
+    }
+    
+    1;
+    
+## Subroutine References and Closures
+
+What about subrefs and closures?
+
+    my $fr = sub {
+        my @args=@_;
+        my $res=42;
+        return $res;    
+    }
+    
+The main difference is that we get BAssign (PVar ...) (PLambdaDef ...) instead of BFunDef.
+But how do we emit e.g. 
+
+    sub mk_fr {
+        my $v=...
+        my $fr = sub {
+            my @args=@_;
+            my $res=$v;
+            return $res;    
+        }
+        return $fr;
+    }    
+    
+    my $fr1=mk_fr(...);
+    &{$fr1}(...);
+
+What we need to do is this:
+- create a singleton object that contains the complete context of the anonymous sub. If the context would be limited to the lexical scope of the outer sub, it's not so hard; otherwise it becomes quite elaborate.
+Then fr becomes a method of that singleton class; whenever we find a call to $fr, we need to make this a call to the singleton class method fr:
+
+    class fr_ctxt {
+        T v;
+        fr_ctxt(T v_) : v(v_) {};
+        T1 fr (T2,...) {
+            ...
+        }
+    }
+
+    Fr_ctxt* mk_fr (...) {
+        v=...;
+        Fr_ctxt* fr_ctxt_inst=new fr_ctxt(v);
+        return fr_ctxt_inst;
+    }
+
+    Fr_ctxt* frc1 = mk_fr(...);
+    frc1.fr(...);
+
+## Map and Grep
+
+What about map?
+
+    my @out1 = map { ... } @in1;
+    
+Apart from the parse issue, this is a BAssign of a FunAppl of map, which takes as arguments a PLambdaDef and an Array<Any>. What we emit is simply a for-loop.
+
+    my @out2 = map(expr,@in2);
+    
+This is a BAssign of a FunAppl of map, which takes as arguments an expression and an Array<Any>. The problem is this expression: e.g. chr is OK, as is a f if f is a defined function. I think we should turn this into a lambda:
+
+    f -> { f($_) }
+    
+## Deferencing
+
+What about 
+
+    $v= &{ ${ ${ $r }[$i] }{$j} }($k);
+    
+this is a dereferencing operation on the Ref<Any> $r. The inner operation is at(), the outer operation is lookup(), so we have (FunAppl (call (FunAppl lookup (FunAppl at (Ref<Any> r) (PVar i)) (PVar j)) ) (PVar k)) . 
+
+
