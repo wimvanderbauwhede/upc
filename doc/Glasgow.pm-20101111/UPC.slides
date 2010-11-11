@@ -16,8 +16,7 @@ presentation_title: <br><tag>UPC: The Unobtrusive Perl Compiler</tag>
 = What if ...
 +* you could simply mark a function ...
 +* and it would automatically be compiled?
-+* So you would get all the speed benefits
-+* at almost no cost
++* So you would get all the speed benefits -- at almost no cost
 ----
 = |use static;|
 +* Most Perl scripts are mostly statically typeable
@@ -61,10 +60,10 @@ presentation_title: <br><tag>UPC: The Unobtrusive Perl Compiler</tag>
 +* Perl gurus
 ----
 = _
-== |http://github.com/wimvanderbauwhede/upc|
- wim.vanderbauwhede@gmail.com 
+== |https://github.com/|
+== |wimvanderbauwhede/upc|
 
 ----
 = _
-= &nbsp;&nbsp;Thank you!
+=  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you!
 ----

@@ -35,7 +35,7 @@ link_index: Index
 mto: <span class="tag">
 mtc: </span>
 
-start_command: open  -a /Applications/Firefox.app/ slides/start.html
+start_command: open  -a /Applications/PlainView.app/ slides/start.html
 
 # Change core classes here:
 # formatter_class: Spork::Formatter::Kwid

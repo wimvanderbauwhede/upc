@@ -16,8 +16,7 @@ presentation_title: <br><span class="tag">UPC: The Unobtrusive Perl Compiler</sp
 = What if ...
 +* you could simply mark a function ...
 +* and it would automatically be compiled?
-+* So you would get all the speed benefits
-+* at almost no cost
++* So you would get all the speed benefits -- at almost no cost
 ----
 = |use static;|
 +* Most Perl scripts are mostly statically typeable
@@ -44,23 +43,28 @@ presentation_title: <br><span class="tag">UPC: The Unobtrusive Perl Compiler</sp
 = Challenges:
 +* Parsing Perl ...
 +* Modules and imports  
-+* Create Perl extenstions using XS or SWIG
++* Create Perl extenstions in C++
 ----
 = Help Needed
 +* PR: spread the word, attract volunteers
 +* Project management: plans, milestones, releases etc
+----
+= Help Needed
 +* Lambdacamels:
 +** Extending the parser
 +** Extending the code generator
+----
+= Help Needed
 +* C++ experts: esp. for memory management
 +* XS/SWIG gurus
 +* Perl gurus
 ----
 = <span class="hide">_</span>
-== |http://github.com/wimvanderbauwhede/upc|
- wim.vanderbauwhede@gmail.com 
+== |https://github.com/|
+== |wimvanderbauwhede/upc|
 
 ----
 = <span class="hide">_</span>
-= &nbsp;&nbsp;Thank you!
+= <span class="hide">_</span>
+=  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you!
 ----

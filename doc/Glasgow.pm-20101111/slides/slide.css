@@ -6,20 +6,15 @@ BODY {
         /* font-weight: bold; */
 	font-family: Georgia, DejaVu Serif Condensed;
 	cursor: pointer;
-	    font-size: 48pt;
+	    font-size: 40pt;
 }
 
-h1,h3,h4,h5 {
-    font-weight:normal;
-    font-size: 72pt;
-    text-align=center;
-    }
-
-h2 {
-    font-weight:normal;
-    font-size: 60pt;
-    text-align=center;
-    }
+h1,h3,h4,h5 {font-weight:normal;
+font-size: 64pt;
+text-align=center;}
+h2 {font-weight:normal;
+font-size: 52pt;
+text-align=center;}
 
 hr {
     color: #202040;
@@ -46,12 +41,12 @@ a:hover {
 
 p,ul,li,body {
     color: white;
-    font-size: 48pt;
+    font-size: 40pt;
     margin: 6pt;
 }
 
 div p {
-    font-size: 48pt;
+    font-size: 40pt;
     margin-top: 12pt;
     margin-bottom: 12pt;
     margin-left: 6pt;
@@ -70,7 +65,7 @@ small {
     right: 5px;
     left: 5px;
     top: 5px;
-    height: 0px;
+    height: 10px;
 }
 
 #bottombar {
@@ -100,7 +95,7 @@ small {
     color: white;
     margin-left: 80px;
     margin-right:20px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 #logo {
@@ -115,7 +110,7 @@ small {
 }
 
 .formatter_pre {
-font-size: 32pt;
+font-size: 36pt;
 }
 
 .s {
@@ -143,9 +138,6 @@ font-size: 32pt;
         font-family: Anonymous,Lucida Console,Andale Mono,Bitstream Vera Sans Mono,monospace;
         color: #9999ff;
 }
-.var {
-        color: #9999ff;
-}
 .fix {
         font-size:56px;
 }
@@ -155,10 +147,6 @@ font-size: 32pt;
 .tag {
         color: #66ff66;
 }
-.comm {
-        color: #66ff66;
-}
-
 .att {
         color: #9999ff;
 }
@@ -166,15 +154,18 @@ font-size: 32pt;
         color: #99ffff;
 }
 
-.const {
-        color: #ff9999;
-}
 .str {
         color: #ff9999;
 }
 
 .hide { color: #204A87; }
-
+.hid {
+        color: #999999;
+}
+.hidt {
+        color: #999999;
+        font-style: italic;
+}
 .pre {
         font-family: Anonymous,Lucida Console,Andale Mono,Bitstream Vera Sans Mono,monospace;
         padding-bottom: 8px;
